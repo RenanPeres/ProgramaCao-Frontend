@@ -1,0 +1,118 @@
+.question-container {
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mascot-speech {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 40px;
+
+    .speech-bubble {
+        background: white;
+        padding: 25px;
+        border-radius: 30px 30px 30px 5px;
+        box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
+        flex: 1;
+        position: relative;
+
+        h2 {
+            color: #2d3436;
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: #636e72;
+            margin: 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+    }
+
+    .mascot-icon {
+        font-size: 4rem;
+        filter: drop-shadow(0 5px 0 rgba(0, 0, 0, 0.1));
+    }
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.option-card {
+    background: white;
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-bottom: 8px solid #dfe6e9;
+    text-align: left;
+
+    &:hover {
+        transform: translateY(-5px);
+        background: #fdfdfd;
+    }
+
+    &:active {
+        transform: translateY(2px);
+        border-bottom-width: 2px;
+    }
+
+    .option-letter {
+        background: #f0f2f5;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .option-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2d3436;
+    }
+}
+
+.hint-box {
+    margin-top: 30px;
+    background: #fff9db;
+    padding: 15px;
+    border-radius: 15px;
+    color: #856404;
+    font-weight: 500;
+    border: 1px dashed #ffe066;
+}
+
+.fade-in {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

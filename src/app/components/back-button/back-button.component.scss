@@ -1,0 +1,36 @@
+/* Use o ponto (.) antes de btn-universal */
+.btn-universal {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+
+    /* Sombra para dar o efeito 3D */
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+
+    &:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+    }
+}
+
+.primary {
+    background-color: #ff7675;
+    /* Cor avermelhada do ProgramaCão */
+    color: white;
+    box-shadow: 0 6px 0 #d63031;
+}
+
+.secondary {
+    background-color: #fab1a0;
+    color: #d63031;
+    box-shadow: 0 6px 0 #ff7675;
+}

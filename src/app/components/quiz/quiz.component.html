@@ -4,25 +4,34 @@
         (onSelect)="handleCategorySelect($event)">
     </app-category-list>
 
-    <app-phase-list *ngIf="viewMode === 'phase'" [phases]="selectedCategory?.phases"
-        [categoryName]="selectedCategory?.name" (onSelectPhase)="handlePhaseSelect($event)"
+    <app-phase-list *ngIf="viewMode === 'phase' && selectedCategory" [phases]="selectedCategory.phases"
+        [categoryName]="selectedCategory.name" (onSelectPhase)="handlePhaseSelect($event)"
         (onBack)="backToCategories()">
     </app-phase-list>
 
-    <div *ngIf="viewMode === 'game'">
+    <div *ngIf="viewMode === 'game'" class="fade-in">
         <div *ngIf="!quizFinalizado; else finalizado">
-            <button (click)="backToPhases()">Sair</button>
+            <div class="game-top">
+                <app-back-button label="Sair" icon="❌" theme="secondary" (onClick)="backToPhases()">
+                </app-back-button>
+
+                <span class="phase-title">🐾 {{ selectedPhase?.name }}</span>
+            </div>
 
             <app-question-card [question]="questions[currentIndex]" (answerSelected)="handleAnswer($event)">
             </app-question-card>
-
         </div>
     </div>
 
     <ng-template #finalizado>
-        <div class="result-card">
-            <h2>🏆 Missão Cumprida!</h2>
-            <button (click)="backToPhases()">Voltar</button>
+        <div class="result-screen">
+            <div class="big-icon">🏆</div>
+            <h2>Missão Cumprida!</h2>
+            <p>O ProgramaCão está orgulhoso de você!</p>
+
+            <button class="btn-main-success" (click)="backToPhases()">
+                PRÓXIMA AVENTURA ➔
+            </button>
         </div>
     </ng-template>
 

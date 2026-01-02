@@ -4,11 +4,12 @@ import { QuizService } from '../../services/quiz.service';
 import { QuestionCardComponent } from '../question-card/question-card.component';
 import { CategoryListComponent } from '../category-list/category-list.component';
 import { PhaseListComponent } from '../phase-list/phase-list.component';
+import { BackButtonComponent } from '../back-button/back-button.component';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule, QuestionCardComponent, CategoryListComponent, PhaseListComponent],
+  imports: [CommonModule, QuestionCardComponent, CategoryListComponent, PhaseListComponent, BackButtonComponent],
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss']
 })
