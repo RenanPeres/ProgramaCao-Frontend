@@ -1,23 +1,43 @@
 <div class="game-container">
 
     <div *ngIf="viewMode === 'category'" class="fade-in">
-        <div class="welcome-badge">🚀 Escolha sua próxima aventura!</div>
+        <div class="welcome-header">
+            <h1>🚀 Portal Code Kids</h1>
+            <p>Escolha sua missão para começar!</p>
+        </div>
 
         <div class="category-grid">
             <div *ngFor="let cat of categories" (click)="selectCategory(cat.id)" class="card-adventure"
-                [style.border-bottom-color]="cat.color">
-                <span class="icon-bubble">{{ cat.icon }}</span>
+                [class.is-completed]="cat.completed" [style.border-bottom-color]="cat.color">
+
+                <div class="status-icon">
+                    {{ cat.completed ? '✅' : '⏳' }}
+                </div>
+
+                <div class="icon-circle" [style.background-color]="cat.color + '22'">
+                    {{ cat.icon }}
+                </div>
+
                 <h3>{{ cat.name }}</h3>
-                <button class="btn-play">Começar!</button>
+                <p>{{ cat.description }}</p>
+
+                <button class="btn-action" [style.background-color]="cat.color">
+                    {{ cat.completed ? 'Treinar de novo' : 'Jogar' }}
+                </button>
             </div>
         </div>
     </div>
 
-    <div *ngIf="viewMode === 'game'" class="quiz-box fade-in">
+    <div *ngIf="viewMode === 'game'" class="fade-in">
         <div *ngIf="!quizFinalizado; else finalizado">
-            <div class="quiz-header">
-                <button (click)="backToCategories()" class="btn-mini-back">⬅ Voltar</button>
-                <div class="progress-pill">{{ currentIndex + 1 }} / {{ questions.length }}</div>
+            <div class="game-header">
+                <button class="btn-back" (click)="backToCategories()">⬅ Sair</button>
+                <div class="progress-info">
+                    <span>Missão: {{ selectedCategory }}</span>
+                    <div class="bar-bg">
+                        <div class="bar-fill" [style.width.%]="((currentIndex + 1) / questions.length) * 100"></div>
+                    </div>
+                </div>
             </div>
 
             <app-question-card [question]="questions[currentIndex]" (answerSelected)="handleAnswer($event)">
@@ -26,12 +46,12 @@
     </div>
 
     <ng-template #finalizado>
-        <div class="result-card fade-in">
-            <div class="trophy">🏆</div>
-            <h2>Inrível!</h2>
-            <p>Você completou a missão <strong>{{ selectedCategory }}</strong>!</p>
-            <div class="score-badge">Acertos: {{ score }} / {{ questions.length }}</div>
-            <button class="btn-restart" (click)="backToCategories()">Outra Missão!</button>
+        <div class="result-screen fade-in">
+            <div class="big-icon">🏆</div>
+            <h2>Missão Cumprida!</h2>
+            <p>Você é fera em <strong>{{ selectedCategory }}</strong>!</p>
+            <div class="score-box">Acertos: {{ score }} / {{ questions.length }}</div>
+            <button class="btn-finish" (click)="backToCategories()">Voltar ao Mapa</button>
         </div>
     </ng-template>
 
