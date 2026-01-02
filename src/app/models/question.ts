@@ -3,6 +3,7 @@ export interface Question {
     title: string;
     description: string;
     options: string[];
-    correctAnswer: number; // Índice da resposta correta
-    explanation: string;   // Dica educativa após a resposta
+    correctAnswer: number;
+    explanation: string;
+    category: 'Condicionais' | 'Looping' | 'Variaveis'; // Adicionado
 }

@@ -1,0 +1,98 @@
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.welcome-badge {
+    background: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card-adventure {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 8px solid #ccc; // Cor será sobrescrita no HTML inline
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-bubble {
+        font-size: 3rem;
+        background: #f0f0f0;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+    }
+
+    h3 {
+        margin: 10px 0;
+        color: #333;
+    }
+}
+
+.btn-play {
+    background: #ffc107;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Estilo para o Card de Resultado
+.result-card {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+
+    .trophy {
+        font-size: 5rem;
+    }
+
+    .score-badge {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
+}
