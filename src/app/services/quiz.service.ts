@@ -1,33 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../models/question';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
-  private questions: Question[] = [
+  private categories = [
     {
-      id: 1,
-      title: 'O que é um Loop?',
-      description: 'Se eu quero que o robô ande 10 vezes, o que eu uso?',
-      options: ['Um Loop', 'Um Martelo', 'Uma Variável'],
-      correctAnswer: 0,
-      explanation: 'Loops servem para repetir tarefas!',
-      category: 'Looping'
+      id: 'Condicionais', name: 'Se... Então', icon: '⚖️', color: '#FF5722', description: 'Tome decisões!', completed: false,
+      phases: [
+        { id: 1, name: 'Fase 1: Introdução', completed: false },
+        { id: 2, name: 'Fase 2: Desafio Real', completed: false }
+      ]
     },
     {
-      id: 2,
-      title: 'Se... então...',
-      description: 'Se estiver chovendo, eu pego o guarda-chuva. Isso é:',
-      options: ['Loop', 'Condicional', 'Variável'],
-      correctAnswer: 1,
-      explanation: 'Condicionais ajudam o computador a tomar decisões!',
-      category: 'Condicionais'
+      id: 'Looping', name: 'Repetições', icon: '🔁', color: '#4CAF50', description: 'Repita tarefas!', completed: false,
+      phases: [{ id: 1, name: 'Fase Única', completed: false }]
+    },
+    {
+      id: 'Variaveis', name: 'Caixinhas', icon: '📦', color: '#2196F3', description: 'Guarde dados!', completed: false,
+      phases: [{ id: 1, name: 'Fase Única', completed: false }]
     }
-    // Você pode adicionar mais mocks para 'Variaveis' aqui
   ];
 
-  getQuestionsByCategory(category: string): Question[] {
-    return this.questions.filter(q => q.category === category);
+  // Esse é o método que o seu componente está chamando
+  getCategories() {
+    return this.categories;
+  }
+
+  getQuestionsByCategory(catId: string) {
+    return [
+      {
+        title: 'Desafio de Programação',
+        description: `Vamos praticar ${catId}!`,
+        options: ['Sim!', 'Claro!', 'Com certeza!'],
+        correctAnswer: 0
+      }
+    ];
   }
 }

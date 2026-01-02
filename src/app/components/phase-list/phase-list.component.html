@@ -1,0 +1,20 @@
+<div class="phase-container">
+    <button (click)="onBack.emit()" class="btn-back">⬅ Voltar ao Mapa</button>
+
+    <div class="header-info">
+        <h2>Trilha: {{ categoryName }}</h2>
+        <p>Selecione uma fase para começar!</p>
+    </div>
+
+    <div class="phase-grid">
+        <div *ngFor="let phase of phases" (click)="onSelectPhase.emit(phase)" class="phase-card"
+            [class.is-locked]="!phase.completed && phase.id > 1">
+            <div class="phase-number">{{ phase.id }}</div>
+            <div class="phase-details">
+                <h3>{{ phase.name }}</h3>
+                <span class="badge">{{ phase.completed ? '✅ Concluída' : '🚀 Disponível' }}</span>
+            </div>
+            <div class="arrow">➔</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="category-grid">
+    <div *ngFor="let cat of categories" (click)="onSelect.emit(cat)" class="card-adventure"
+        [class.is-done]="cat.completed">
+        <div class="status-badge">{{ cat.completed ? '🏆' : '🗺️' }}</div>
+        <div class="icon-bubble" [style.background]="cat.color">{{ cat.icon }}</div>
+        <h3>{{ cat.name }}</h3>
+        <div class="phase-count">{{ cat.phases.length }} Fases</div>
+    </div>
+</div>
