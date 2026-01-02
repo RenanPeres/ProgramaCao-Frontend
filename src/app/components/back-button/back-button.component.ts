@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     imports: [CommonModule],
     templateUrl: './back-button.component.html',
-    styleUrls: ['./back-button.component.scss']
+    styleUrls: ['./back-button.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class BackButtonComponent {
     @Input() label: string = 'Voltar';
