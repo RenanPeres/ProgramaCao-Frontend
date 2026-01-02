@@ -1,0 +1,21 @@
+<div class="quiz-wrapper">
+    <div *ngIf="!quizFinalizado; else finalizado">
+        <div class="header-quiz">
+            <span>Pergunta {{ currentIndex + 1 }} de {{ questions.length }}</span>
+            <div class="progress-container">
+                <div class="progress-bar" [style.width.%]="((currentIndex + 1) / questions.length) * 100"></div>
+            </div>
+        </div>
+
+        <app-question-card [question]="questions[currentIndex]" (answerSelected)="handleAnswer($event)">
+        </app-question-card>
+    </div>
+
+    <ng-template #finalizado>
+        <div class="result-card">
+            <h2>🏆 Missão Cumprida!</h2>
+            <p>Você acertou <strong>{{ score }}</strong> de <strong>{{ questions.length }}</strong> desafios.</p>
+            <button class="btn-restart" (click)="restartQuiz()">Jogar Novamente</button>
+        </div>
+    </ng-template>
+</div>
